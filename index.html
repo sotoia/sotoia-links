@@ -1,0 +1,332 @@
+<!doctype html>
+<!--
+  sotoia · links
+  Built with Liquid Gradient (https://github.com/sotoia/liquid-gradient)
+  MIT
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>sotoia — links</title>
+<meta name="description" content="Founder, developer, content creator. All my links in one place.">
+<meta property="og:title" content="sotoia — links">
+<meta property="og:description" content="Founder, developer, content creator. All my links in one place.">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     EDIT ME — your profile info
+     ========================================================= */
+  /* (most edits live in the LINKS array at the bottom of the page) */
+
+  :root{
+    --bg:#000;
+    --card:rgba(255,255,255,0.06);
+    --card-hover:rgba(255,255,255,0.12);
+    --border:rgba(255,255,255,0.12);
+    --border-hover:rgba(255,255,255,0.3);
+    --text:#fff;
+    --text-muted:rgba(255,255,255,.72);
+    --text-subtle:rgba(255,255,255,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #liquid{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:0}
+
+  main{
+    position:relative;z-index:1;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:40px 20px;
+  }
+  .card{
+    width:100%;
+    max-width:420px;
+    text-align:center;
+  }
+
+  /* === Avatar === */
+  .avatar{
+    width:96px;height:96px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #384fff 0%, #7c3aed 100%);
+    display:grid;place-items:center;
+    margin:0 auto 18px;
+    font-family:"Inter",sans-serif;
+    font-size:36px;font-weight:600;color:#fff;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation:blurIn 1s cubic-bezier(0.22,1,0.36,1) both;
+    overflow:hidden;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+  /* === Identity === */
+  h1{
+    font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#fff;
+    margin-bottom:6px;mix-blend-mode:overlay;
+    animation:fadeUp .8s .15s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .handle{
+    font-family:"Space Mono",monospace;font-size:12px;color:var(--text-subtle);
+    letter-spacing:0.08em;text-transform:lowercase;margin-bottom:14px;
+    animation:fadeUp .8s .25s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .bio{
+    font-size:14px;line-height:1.55;color:var(--text-muted);
+    max-width:340px;margin:0 auto 28px;
+    animation:fadeUp .8s .35s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  /* === Links === */
+  .links{
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .link{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    color:var(--text);
+    text-decoration:none;
+    font-size:15px;font-weight:500;
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    transition:transform .2s cubic-bezier(0.22,1,0.36,1),background .2s,border-color .2s;
+    opacity:0;animation:fadeUp .6s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .link:hover{
+    background:var(--card-hover);
+    border-color:var(--border-hover);
+    transform:translateY(-1px);
+  }
+  .link .icon{
+    width:24px;height:24px;display:grid;place-items:center;
+    flex-shrink:0;color:#fff;opacity:.85;
+  }
+  .link .label{
+    flex:1;text-align:left;
+  }
+  .link .handle-line{
+    font-family:"Space Mono",monospace;font-size:11px;color:var(--text-subtle);
+    margin-top:2px;letter-spacing:-0.01em;
+  }
+  .link .arrow{
+    color:var(--text-subtle);font-size:14px;opacity:0;
+    transition:opacity .2s,transform .2s cubic-bezier(0.22,1,0.36,1);
+  }
+  .link:hover .arrow{opacity:1;transform:translateX(2px)}
+
+  /* === Footer === */
+  footer{
+    margin-top:36px;text-align:center;
+    font-family:"Space Mono",monospace;font-size:10px;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--text-subtle);
+    animation:fadeUp .8s .9s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  footer a{color:var(--text-muted);text-decoration:none;border-bottom:1px solid var(--border)}
+  footer a:hover{color:#fff;border-color:#fff}
+
+  @keyframes blurIn{from{opacity:0;filter:blur(16px);transform:scale(.9)}to{opacity:1;filter:blur(0);transform:scale(1)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<canvas id="liquid"></canvas>
+
+<main>
+  <div class="card">
+    <div class="avatar" id="avatar">S</div>
+    <h1 id="displayName">sotoia</h1>
+    <div class="handle" id="handleLine">@sotoia · developer · founder</div>
+    <p class="bio" id="bio">Building tools at the intersection of design and AI. Coding things that make money or save time — sometimes both.</p>
+
+    <div class="links" id="links">
+      <!-- populated by JS -->
+    </div>
+
+    <footer>
+      Built with <a href="https://github.com/sotoia/liquid-gradient" target="_blank" rel="noopener">Liquid Gradient</a>
+    </footer>
+  </div>
+</main>
+
+<script>
+// =============================================================================
+// EDIT EVERYTHING BELOW — your profile + your links.
+// Add, remove, reorder freely. Icons are inline SVG (lucide / brand sources).
+// =============================================================================
+
+const PROFILE = {
+  name: 'sotoia',
+  handle: '@sotoia · developer · founder',
+  bio: 'Building tools at the intersection of design and AI. Coding things that make money or save time — sometimes both.',
+  avatar: 'S',  // either a single letter for monogram, OR a URL to an image: 'https://example.com/me.jpg'
+};
+
+const LINKS = [
+  {
+    label: 'Liquid Gradient',
+    handle: 'liquid-gradient-beta.vercel.app',
+    url:   'https://liquid-gradient-beta.vercel.app',
+    icon: 'sparkles',
+    featured: true,
+  },
+  {
+    label: 'YouTube',
+    handle: '@sotoia',          // ← edit
+    url:   'https://www.youtube.com/@sotoia',  // ← edit
+    icon: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    handle: '@sotoia',          // ← edit
+    url:   'https://instagram.com/sotoia',  // ← edit
+    icon: 'instagram',
+  },
+  {
+    label: 'TikTok',
+    handle: '@sotoia',          // ← edit
+    url:   'https://tiktok.com/@sotoia',  // ← edit
+    icon: 'tiktok',
+  },
+  {
+    label: 'X (Twitter)',
+    handle: '@sotoia',          // ← edit
+    url:   'https://x.com/sotoia',  // ← edit
+    icon: 'x',
+  },
+  {
+    label: 'GitHub',
+    handle: '@sotoia',
+    url:   'https://github.com/sotoia',
+    icon: 'github',
+  },
+  // Add or remove as you like. Available icons (see ICONS object below):
+  //   youtube, instagram, tiktok, x, github, linkedin, threads,
+  //   sparkles, link, mail, globe, music
+];
+
+// =============================================================================
+// Icon sources — feel free to add more. (lucide / official brand glyphs)
+// =============================================================================
+const ICONS = {
+  sparkles: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>',
+  youtube: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 6.186a2.506 2.506 0 0 0-1.768-1.768C18.254 4 12 4 12 4s-6.254 0-7.814.418a2.506 2.506 0 0 0-1.768 1.768C2 7.746 2 12 2 12s0 4.254.418 5.814a2.506 2.506 0 0 0 1.768 1.768C5.746 20 12 20 12 20s6.254 0 7.814-.418a2.506 2.506 0 0 0 1.768-1.768C22 16.254 22 12 22 12s0-4.254-.418-5.814zM10 15V9l5.196 3L10 15z"/></svg>',
+  instagram: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>',
+  tiktok: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>',
+  x: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+  github: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23a11.46 11.46 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 0z"/></svg>',
+  linkedin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+  threads: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509-1.646-2.05-2.495-4.904-2.526-8.476v-.013-.013c.031-3.572.88-6.426 2.526-8.476C5.844 1.205 8.597.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.31-6.015-2.912.022-5.112.936-6.54 2.717-1.336 1.668-2.026 4.078-2.05 7.165.024 3.086.714 5.497 2.05 7.164 1.428 1.78 3.628 2.695 6.54 2.717 2.628-.02 4.366-.628 5.819-2.045 1.42-1.36 1.7-3.07 1.673-4.7-.103-2.103-1.082-3.628-2.91-4.532-.518-.256-1.082-.45-1.69-.578-.184 1.515-.673 3.054-1.43 4.572-1.122 2.245-2.69 3.66-4.674 4.225-1.97.56-3.842.345-5.398-.658-1.787-1.143-2.81-3.094-2.81-5.36 0-2.272 1.018-4.218 2.802-5.354 1.55-.992 3.41-1.21 5.382-.65 2.005.582 3.583 2.011 4.7 4.262.45.917.815 1.92 1.084 2.978a14.42 14.42 0 0 0-1.41-.046c-.4 0-.802.026-1.214.075-.207-.78-.471-1.51-.788-2.165-.66-1.346-1.555-2.32-2.66-2.91-1.105-.588-2.265-.738-3.345-.434-1.044.293-1.857.93-2.42 1.89-.564.963-.851 2.18-.851 3.616 0 1.436.287 2.652.85 3.616.564.96 1.377 1.598 2.421 1.89 1.08.305 2.24.155 3.345-.433 1.105-.59 2-1.564 2.66-2.91.396-.81.71-1.715.94-2.7-.55-.21-1.176-.385-1.917-.498l-.005-.001zM21.45 17.155c-.45 1.18-1.082 2.21-1.878 3.057-1.05 1.117-2.36 1.972-3.892 2.54-1.51.559-3.273.85-5.249.866h-.013l-.014.005c-1.99-.013-3.755-.31-5.247-.881-1.532-.586-2.832-1.46-3.86-2.6-1.06-1.18-1.823-2.612-2.265-4.252-.464-1.72-.694-3.683-.685-5.832v-.013c-.009-2.15.22-4.114.685-5.833.442-1.64 1.204-3.072 2.264-4.25C2.323 2.16 3.625 1.275 5.158.688 6.65.115 8.416-.182 10.405-.196L10.42-.2c1.99.013 3.755.31 5.249.882 1.531.586 2.844 1.453 3.894 2.575 1.04 1.117 1.83 2.466 2.348 4.012l-2.04.692a8.59 8.59 0 0 0-1.79-3.105c-.79-.846-1.794-1.5-2.978-1.946-1.197-.45-2.59-.69-4.135-.7-1.546.012-2.94.245-4.137.696-1.185.447-2.19 1.1-2.978 1.946-.776.838-1.41 1.91-1.872 3.176C3.493 9.32 3.234 11.105 3.234 13c0 1.895.26 3.68.747 5.273.462 1.27 1.096 2.34 1.872 3.18.788.847 1.793 1.502 2.978 1.946 1.198.45 2.59.684 4.137.695 1.545-.01 2.937-.247 4.135-.697 1.184-.447 2.187-1.1 2.978-1.945.79-.846 1.42-1.91 1.872-3.178l1.498.546z"/></svg>',
+  link: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+  mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+  globe: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>',
+  music: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+};
+
+// =============================================================================
+// Renderer — you typically don't need to edit below
+// =============================================================================
+
+document.getElementById('displayName').textContent = PROFILE.name;
+document.getElementById('handleLine').textContent = PROFILE.handle;
+document.getElementById('bio').textContent = PROFILE.bio;
+
+const avatarEl = document.getElementById('avatar');
+if (PROFILE.avatar && PROFILE.avatar.length > 3 && (PROFILE.avatar.startsWith('http') || PROFILE.avatar.startsWith('/'))) {
+  avatarEl.innerHTML = `<img src="${PROFILE.avatar}" alt="${PROFILE.name}">`;
+} else {
+  avatarEl.textContent = (PROFILE.avatar || PROFILE.name[0] || '?').toUpperCase();
+}
+
+const linksContainer = document.getElementById('links');
+LINKS.forEach((l, i) => {
+  const a = document.createElement('a');
+  a.className = 'link';
+  a.href = l.url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.style.animationDelay = (0.45 + i * 0.05) + 's';
+  a.innerHTML = `
+    <span class="icon">${ICONS[l.icon] || ICONS.link}</span>
+    <span class="label">
+      <div>${l.label}</div>
+      <div class="handle-line">${l.handle}</div>
+    </span>
+    <span class="arrow">→</span>
+  `;
+  linksContainer.appendChild(a);
+});
+
+// =============================================================================
+// Liquid Gradient background — preset: cinematic (matches sotoia/liquid-gradient)
+// =============================================================================
+const CONFIG = {
+  colors: ["#000000","#0a0a0a","#384fff","#1a1a1a"],
+  speed: 0.18, scale: 0.9, turbAmp: 1.2, turbFreq: 0.85, turbIter: 5,
+  waveFreq: 1.6, jellify: 1, distBias: 0.0,
+  dither: 0.08, ditherMode: 1,
+  exposure: 0.6, contrast: 1.2, saturation: 1.15,
+  seed: 17.0, loop: 0,
+};
+
+const canvas = document.getElementById('liquid');
+const gl = canvas.getContext('webgl2', {antialias:false, premultipliedAlpha:false});
+if (!gl) { canvas.style.background = 'radial-gradient(ellipse at center, #0e1a4f 0%, #000 80%)'; }
+else {
+const VS = `#version 300 es
+in vec2 a_pos; out vec2 v_uv;
+void main(){ v_uv = a_pos*0.5+0.5; gl_Position = vec4(a_pos, 0.0, 1.0); }`;
+
+const FS = `#version 300 es
+precision highp float;precision highp int;in vec2 v_uv;out vec4 fragColor;
+#define MAX_COLORS 8
+uniform vec4 u_colors[MAX_COLORS];uniform int u_colors_length;uniform vec2 u_resolution;uniform float u_time;uniform float u_pixelRatio;uniform float u_seed;uniform float u_speed;uniform float u_scale;uniform float u_turbAmp;uniform float u_turbFreq;uniform float u_turbIter;uniform float u_waveFreq;uniform float u_jellify;uniform float u_distBias;uniform float u_dither;uniform float u_ditherMode;uniform float u_exposure;uniform float u_contrast;uniform float u_saturation;uniform float u_loop;
+const float GA=2.3999632;const float TAU=6.28318530;
+uvec3 h3(uvec3 v){v=v*1664525u+1013904223u;v.x+=v.y*v.z;v.y+=v.z*v.x;v.z+=v.x*v.y;v^=v>>16u;v.x+=v.y*v.z;v.y+=v.z*v.x;v.z+=v.x*v.y;return v;}
+vec3 sR(float s){uvec3 u=uvec3(floatBitsToUint(s),floatBitsToUint(s*1.5+7.31),floatBitsToUint(s*2.7+13.37));u=h3(u);return vec3(u)/float(0xFFFFFFFFu);}
+vec3 tL(vec3 c){return pow(c,vec3(2.2));}vec3 tS(vec3 c){return pow(clamp(c,0.0,1.0),vec3(0.4545));}
+vec3 lOk(vec3 c){float l=0.4122214708*c.r+0.5363325363*c.g+0.0514459929*c.b;float m=0.2119034982*c.r+0.6806995451*c.g+0.1073969566*c.b;float s=0.0883024619*c.r+0.2817188376*c.g+0.6299787005*c.b;l=pow(max(l,0.0),1.0/3.0);m=pow(max(m,0.0),1.0/3.0);s=pow(max(s,0.0),1.0/3.0);return vec3(0.2104542553*l+0.7936177850*m-0.0040720468*s,1.9779984951*l-2.4285922050*m+0.4505937099*s,0.0259040371*l+0.7827717662*m-0.8086757660*s);}
+vec3 okL(vec3 c){float l=c.x+0.3963377774*c.y+0.2158037573*c.z;float m=c.x-0.1055613458*c.y-0.0638541728*c.z;float s=c.x-0.0894841775*c.y-1.2914855480*c.z;l=l*l*l;m=m*m*m;s=s*s*s;return vec3(+4.0767416621*l-3.3077115913*m+0.2309699292*s,-1.2684380046*l+2.6097574011*m-0.3413193965*s,-0.0041960863*l-0.7034186147*m+1.7076147010*s);}
+vec3 okLch(vec3 lab){return vec3(lab.x,length(lab.yz),atan(lab.z,lab.y));}vec3 lchOk(vec3 l){return vec3(l.x,l.y*cos(l.z),l.y*sin(l.z));}
+vec3 mLch(vec3 a,vec3 b,float t){vec3 la=okLch(a),lb=okLch(b);if(la.y<0.05)la.z=lb.z;if(lb.y<0.05)lb.z=la.z;float dh=lb.z-la.z;if(dh>3.14159265)dh-=TAU;if(dh<-3.14159265)dh+=TAU;return lchOk(vec3(mix(la.x,lb.x,t),mix(la.y,lb.y,t),la.z+dh*t));}
+vec3 gC(int i){if(u_colors_length<1)return vec3(0.0);int k=clamp(i,0,u_colors_length-1);return u_colors[k].rgb;}
+vec3 pN(float t,int n){if(n<1)return vec3(0.0);if(n<2)return tL(gC(0));float seg=1.0/float(n-1);t=clamp(t,0.0,1.0);int idx=min(int(floor(t/seg)),n-2);float lt=clamp((t-float(idx)*seg)/seg,0.0,1.0);vec3 a=lOk(tL(gC(idx)));vec3 b=lOk(tL(gC(idx+1)));return okL(mLch(a,b,lt));}
+float IGN(vec2 uv){return fract(52.9829189*fract(dot(uv,vec2(0.06711056,0.00583715))));}
+float qN(vec2 I){return fract(sin(dot(I,vec2(12.9898,78.233)))*43758.5453);}
+float gD(vec2 I,float m){if(m<0.5)return 0.5;if(m<1.5)return IGN(I);return qN(I);}
+vec3 sGM(vec3 rgb){float mx=max(rgb.r,max(rgb.g,rgb.b)),mn=min(rgb.r,min(rgb.g,rgb.b));if(mn>=0.0&&mx<=1.0)return rgb;vec3 lab=lOk(max(rgb,0.0));float L=clamp(lab.x,0.0,1.0),C=length(lab.yz),h=atan(lab.z,lab.y);float mc=0.4*(1.0-pow(abs(2.0*L-1.0),2.0));if(C>mc*0.7){float k=mc*0.7;C=k+(mc-k)*tanh((C-k)/(mc-k+0.001));}return clamp(okL(vec3(L,C*cos(h),C*sin(h))),0.0,1.0);}
+vec3 aCS(vec3 rgb,float c,float s){vec3 lab=lOk(rgb);float C=length(lab.yz),h=atan(lab.z,lab.y);lab.x=clamp((lab.x-0.5)*c+0.5,0.0,1.0);C*=s;lab.y=C*cos(h);lab.z=C*sin(h);return okL(lab);}
+void main(){vec2 fc=v_uv*u_resolution;vec2 r=u_resolution;vec2 p=(fc*2.0-r)/r.y;int n=u_colors_length;if(n<1){fragColor=vec4(0.0,0.0,0.0,1.0);return;}float t=u_time*0.3;float lp=step(0.5,u_loop);float ph=TAU*u_time/max(u_loop,0.01);float rd=u_loop*u_speed*0.3/TAU;float tA=sin(ph)*rd;float tB=(1.0-cos(ph))*rd;vec3 so=sR(u_seed);vec3 so2=sR(u_seed+100.0);float sa=u_seed*GA;vec2 sp=(so2.xy-0.5)*TAU;float cs=cos(sa),sn=sin(sa);p=mat2(cs,-sn,sn,cs)*p;float di=gD(floor(fc/u_pixelRatio),u_ditherMode);float tv=0.0,tw=0.0;int ti=int(u_turbIter);float fq=1.0/max(u_turbFreq,0.01);for(float i=0.0;i<4.0;i++){float e=i/4.0;vec2 q=p*u_scale;float sq=e*e;if(u_jellify>0.5){q.yx*=mix(1.0,0.5,1.0-exp(-sq));}float a=sp.x;float d=sp.y;for(int j=2;j<13;j++){if(j>=ti)break;float fj=float(j);float t1=mix(t*u_speed,tA,lp);float t2=mix(t*u_speed,tB,lp);q+=u_turbAmp*sin(q.yx/fq*fj+t1+vec2(a,d)+so.xy*fj)/fj;a+=cos(fj+d*1.2+q.x*2.0-t1+so2.z+t2*0.3*lp);d+=sin(fj*q.y+a+so.z+t1+so2.y+t2*0.3*lp);}float v=0.5+0.5*sin(length(q.yx+vec2(a,d)*0.2)*u_waveFreq+i*i+so.x);float w=smoothstep(0.0,0.5,e)*smoothstep(1.0,0.5,e);tv+=v*w;tw+=w;}float val=tv/tw;val=clamp((val-0.3)/0.4,0.0,1.0);val=pow(val,exp(-u_distBias));val=clamp(val+(di-0.5)*u_dither,0.0,1.0);vec3 col=pN(val,n);col*=u_exposure;col=aCS(col,u_contrast,u_saturation);col=sGM(col);col=tS(col);fragColor=vec4(col,1.0);}`;
+
+function compile(t,s){const sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(sh));throw 0;}return sh;}
+const prog=gl.createProgram();gl.attachShader(prog,compile(gl.VERTEX_SHADER,VS));gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);gl.useProgram(prog);
+const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+const aPos=gl.getAttribLocation(prog,'a_pos');gl.enableVertexAttribArray(aPos);gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+const U={};['colors','colors_length','resolution','time','pixelRatio','seed','speed','scale','turbAmp','turbFreq','turbIter','waveFreq','jellify','distBias','dither','ditherMode','exposure','contrast','saturation','loop'].forEach(n=>U[n]=gl.getUniformLocation(prog,'u_'+n));
+function hexToRgba(h){const v=parseInt(h.slice(1),16);return [(v>>16&255)/255,(v>>8&255)/255,(v&255)/255,1];}
+const flat=[]; for(const h of CONFIG.colors) flat.push(...hexToRgba(h)); while(flat.length<32) flat.push(0,0,0,1);
+gl.uniform4fv(U.colors,new Float32Array(flat)); gl.uniform1i(U.colors_length,CONFIG.colors.length);
+function resize(){const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';gl.viewport(0,0,canvas.width,canvas.height);}
+resize();addEventListener('resize',resize);
+const t0=performance.now();
+function frame(){const t=(performance.now()-t0)/1000;
+  gl.uniform2f(U.resolution,canvas.width,canvas.height);gl.uniform1f(U.time,t);gl.uniform1f(U.pixelRatio,Math.min(window.devicePixelRatio||1,2));
+  gl.uniform1f(U.seed,CONFIG.seed);gl.uniform1f(U.speed,CONFIG.speed);gl.uniform1f(U.scale,CONFIG.scale);
+  gl.uniform1f(U.turbAmp,CONFIG.turbAmp);gl.uniform1f(U.turbFreq,CONFIG.turbFreq);gl.uniform1f(U.turbIter,CONFIG.turbIter);
+  gl.uniform1f(U.waveFreq,CONFIG.waveFreq);gl.uniform1f(U.jellify,CONFIG.jellify);gl.uniform1f(U.distBias,CONFIG.distBias);
+  gl.uniform1f(U.dither,CONFIG.dither);gl.uniform1f(U.ditherMode,CONFIG.ditherMode);gl.uniform1f(U.exposure,CONFIG.exposure);
+  gl.uniform1f(U.contrast,CONFIG.contrast);gl.uniform1f(U.saturation,CONFIG.saturation);gl.uniform1f(U.loop,CONFIG.loop);
+  gl.drawArrays(gl.TRIANGLES,0,3);requestAnimationFrame(frame);}
+frame();
+}
+</script>
+</body>
+</html>
