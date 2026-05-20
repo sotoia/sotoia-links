@@ -256,7 +256,8 @@ document.getElementById('handleLine').textContent = PROFILE.handle;
 document.getElementById('bio').textContent = PROFILE.bio;
 
 const avatarEl = document.getElementById('avatar');
-if (PROFILE.avatar && PROFILE.avatar.length > 3 && (PROFILE.avatar.startsWith('http') || PROFILE.avatar.startsWith('/'))) {
+const isAvatarImage = PROFILE.avatar && /^(https?:\/\/|\/|\.\.?\/)|\.(jpe?g|png|webp|gif|svg)$/i.test(PROFILE.avatar);
+if (isAvatarImage) {
   avatarEl.innerHTML = `<img src="${PROFILE.avatar}" alt="${PROFILE.name}">`;
 } else {
   avatarEl.textContent = (PROFILE.avatar || PROFILE.name[0] || '?').toUpperCase();
